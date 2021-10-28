@@ -86,6 +86,7 @@ export function limesToCut(wedgesNeeded, limes) {
  */
 // @ts-ignore
 export function remainingOrders(timeLeft, orders) {
+  //adds the value of each order in orders to an array orderTimes
   let orderTimes = []
   for (let i=0; i< orders.length; i++) {
     let order = orders[i]
@@ -130,7 +131,8 @@ export function remainingOrders(timeLeft, orders) {
 
 let index,
     sum = 0;
-    
+
+//adds each of the array elements & breaks if it exceeds timeLeft
 // eslint-disable-next-line array-callback-return
 orderTimes.some(function(a, i) {
     index = i;
@@ -139,7 +141,11 @@ orderTimes.some(function(a, i) {
     }
     sum += a;
 });
-
+  if (sum < timeLeft) {
+    index += 1
+  } else if (sum > timeLeft) {
+    return orders
+  }
   orders.splice(0,index)
   return orders
 }

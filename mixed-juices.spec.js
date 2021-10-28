@@ -92,7 +92,7 @@ describe('remainingOrders', () => {
     expect(remainingOrders(13, orders)).toEqual(expected);
   });
 
-  xtest('counts all orders as fulfilled if there is enough time', () => {
+  test('counts all orders as fulfilled if there is enough time', () => {
     const orders = [
       'Energizer',
       'Green Garden',
@@ -105,7 +105,7 @@ describe('remainingOrders', () => {
     expect(remainingOrders(12, orders)).toEqual([]);
   });
 
-  xtest('works if there is only very little time left', () => {
+  test('works if there is only very little time left', () => {
     const orders = ['Bananas Gone Wild', 'Pure Strawberry Joy'];
     const expected = ['Pure Strawberry Joy'];
 
